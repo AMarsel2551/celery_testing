@@ -6,8 +6,8 @@ from kombu import Queue
 
 celery_app = Celery(
     'celery_testing',
-    broker=f"redis://192.168.112.101:6379",
-    backend=f"redis://192.168.112.101:6379",
+    broker=f"redis://:Marc2551@37.230.113.58:6379",
+    backend=f"redis://:Marc2551@37.230.113.58:6379",
     broker_connection_retry_on_startup=True,
 )
 
