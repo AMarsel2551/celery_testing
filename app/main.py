@@ -12,8 +12,8 @@ celery_app = Celery(
 )
 
 
-# celery_app.conf.timezone = "Europe/Moscow"
-# celery_app.conf.enable_utc = False
+celery_app.conf.timezone = "Europe/Moscow"
+celery_app.conf.enable_utc = False
 
 
 celery_app.conf.task_queues = (
