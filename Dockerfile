@@ -1,15 +1,17 @@
+# Используем официальный образ Python
 FROM python:3.10-slim
 
+# Устанавливаем рабочую директорию в /app
+WORKDIR /app
+
+# Копируем файлы зависимостей и устанавливаем их
 COPY requirements.txt .
-RUN pip install --no-cache-dir --disable-pip-version-check --extra-index-url http://127.0.0.1:5008/pypi -r requirements.txt
+RUN pip install -r requirements.txt
 
-RUN groupadd -g 501 appuser
-RUN useradd -r -g 501 -u 501 appuser
-COPY start.sh .
-RUN chmod a+x start.sh && chown appuser:appuser start.sh
-USER appuser
-COPY app app
+# Копируем файлы проекта в текущую директорию контейнера
+COPY . .
 
-EXPOSE 8080
+# Определяем порт, который контейнер будет слушать
+EXPOSE 8088
 
 ENTRYPOINT ["/start.sh"]
