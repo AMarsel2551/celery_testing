@@ -12,8 +12,8 @@ celery_app = Celery(
 )
 
 
-celery_app.conf.timezone = "Europe/Moscow"
-celery_app.conf.enable_utc = False
+# celery_app.conf.timezone = "Europe/Moscow"
+# celery_app.conf.enable_utc = False
 
 
 celery_app.conf.task_queues = (
@@ -24,7 +24,7 @@ celery_app.conf.task_queues = (
 celery_app.conf.beat_schedule = {
     'generate_out_report': {
         'task': 'test',
-        'schedule': crontab(hour="16", minute="22"),
+        'schedule': crontab(hour="16", minute="25"),
         # 'schedule': 2,
         'options': { 'queue': 'test_queue' },
     },
