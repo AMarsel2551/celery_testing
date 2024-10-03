@@ -8,6 +8,9 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install -r requirements.txt
 
+COPY start.sh .
+RUN chmod a+x start.sh && chown appuser:appuser start.sh
+
 # Копируем файлы проекта в текущую директорию контейнера
 COPY . .
 
