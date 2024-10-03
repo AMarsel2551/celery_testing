@@ -24,7 +24,8 @@ celery_app.conf.task_queues = (
 celery_app.conf.beat_schedule = {
     'generate_out_report': {
         'task': 'test',
-        'schedule': crontab(hour="15", minute="48"),
+        # 'schedule': crontab(hour="15", minute="49"),
+        'schedule': 2,
         'options': { 'queue': 'test_queue' },
     },
 }
