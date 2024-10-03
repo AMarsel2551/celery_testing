@@ -11,6 +11,9 @@ RUN pip install -r requirements.txt
 # Копируем файлы проекта в текущую директорию контейнера
 COPY . .
 
+# Копируем файл start.sh
+COPY start.sh /start.sh
+
 # Делаем файл start.sh исполняемым
 RUN chmod +x /start.sh
 
